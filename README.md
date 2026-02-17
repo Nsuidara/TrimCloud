@@ -1,6 +1,7 @@
 # Django REST API – TrimCloud
 
-A Django REST Framework based API project managed with Poetry for dependency management.
+This project is a minimal URL shortener API built with Django REST Framework. 
+It allows users to create shortened links from long URLs and automatically redirects to the original URL when the short link is accessed.
 
 This project demonstrates a clean architecture approach using:
 - Poetry
