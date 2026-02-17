@@ -3,8 +3,10 @@ from rest_framework import serializers
 from django.core.validators import URLValidator
 from django.conf import settings
 from django.db import IntegrityError
+from typing import Any
 from .models import Short
 from .utils import generate_code
+from .types import ShortData
 
 
 class ShortCreateSerializer(serializers.ModelSerializer):
@@ -18,12 +20,7 @@ class ShortCreateSerializer(serializers.ModelSerializer):
         },
     )
 
-    class Meta:
-        model = Short
-        fields = ["url", "code"]
-        read_only_fields = ["code"]
-
-    def create(self, validated_data):
+    def create(self, validated_data: ShortData) -> Short:
         url = validated_data["url"]
 
         short = Short.objects.filter(url=url).first()
@@ -38,3 +35,8 @@ class ShortCreateSerializer(serializers.ModelSerializer):
                 continue
 
         raise serializers.ValidationError(_("Couldn't generate a unique code."))
+
+    class Meta:
+        model = Short
+        fields = ["url", "code"]
+        read_only_fields = ["code"]

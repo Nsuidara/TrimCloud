@@ -126,4 +126,4 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 
-MAX_ATTEMPTS = 5
+MAX_ATTEMPTS: int = 5

@@ -37,3 +37,14 @@ def test_generate_code_is_not_deterministic():
     code1 = generate_code("same-value")
     code2 = generate_code("same-value")
     assert code1 != code2
+    
+@pytest.mark.parametrize("bad_value", [
+    123,
+    None,
+    [],
+    {},
+    5.5,
+])
+def test_generate_code_invalid_value_type(bad_value):
+    with pytest.raises(TypeError, match="value must be str"):
+        generate_code(bad_value)
