@@ -1,0 +1,56 @@
+{
+  "info": {
+    "_postman_id": "2f546227-9365-4ce5-8175-e1be223607aa",
+    "name": "Shortener",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "26415854"
+  },
+  "item": [
+    {
+      "name": "Shrt",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{HOST}}/api/shrt/{{code}}",
+          "host": [
+            "{{HOST}}"
+          ],
+          "path": [
+            "api",
+            "shrt",
+            "{{code}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"url\": \"https://example.com/very-very/long/url/even-longer\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{HOST}}/api/short",
+          "host": [
+            "{{HOST}}"
+          ],
+          "path": [
+            "api",
+            "short"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
